@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 395,
+            "activePatchIndex": 536,
             "patches": [
                 {
                     "date": 1761617475014,
@@ -1588,6 +1588,570 @@
                 {
                     "date": 1762311232549,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -990,4 +990,17 @@\n   .login-form-section {\n     padding: 3rem 1rem;\n   }\n }\n+\n+/* ====== OPCIONES EXTRA DEL LOGIN ====== */\n+.form-options {\n+  text-align: left;\n+  margin: 0.5rem 0 1rem;\n+  font-size: 0.9rem;\n+  color: #555;\n+}\n+\n+.form-options input[type=\"checkbox\"] {\n+  margin-right: 0.4rem;\n+  accent-color: var(--accent-color, #f37335);\n+}\n"
+                },
+                {
+                    "date": 1762878424224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1003,4 +1003,198 @@\n .form-options input[type=\"checkbox\"] {\n   margin-right: 0.4rem;\n   accent-color: var(--accent-color, #f37335);\n }\n+\n+<!--=======Final formulario de Notificación======-->\n+/* ====== FORMULARIO DE NOTIFICACIÓN ====== */\n+/* ====== CREAR HISTORIA ====== */\n+.story-header {\n+  display: flex;\n+  justify-content: space-between;\n+  align-items: center;\n+  background: #fff;\n+  border-bottom: 1px solid #ddd;\n+  padding: 1rem 2rem;\n+}\n+\n+.story-header .header-left {\n+  display: flex;\n+  align-items: center;\n+  gap: 1rem;\n+}\n+\n+.story-header h2 {\n+  font-size: 1.2rem;\n+  color: #333;\n+}\n+\n+.back-link {\n+  color: var(--accent-color, #f37335);\n+  text-decoration: none;\n+  font-weight: bold;\n+}\n+\n+.header-actions {\n+  display: flex;\n+  gap: 1rem;\n+}\n+\n+.btn-cancel, .btn-save {\n+  padding: 0.6rem 1.4rem;\n+  border-radius: 8px;\n+  font-size: 0.9rem;\n+  border: none;\n+  cursor: pointer;\n+  transition: 0.3s;\n+}\n+\n+.btn-cancel {\n+  background: #f3f3f3;\n+  color: #333;\n+}\n+\n+.btn-cancel:hover { background: #e5e5e5; }\n+\n+.btn-save {\n+  background: var(--accent-color, #f37335);\n+  color: white;\n+}\n+\n+.btn-save:hover { background: #e85c1a; }\n+\n+/* Layout general */\n+.new-storys {\n+  display: flex;\n+  padding: 2rem;\n+  gap: 2rem;\n+  background: #fafafa;\n+  margin: auto;\n+  max-width: 1000px;\n+}\n+\n+\n+/* Portada */\n+.story-cover {\n+  flex: 1;\n+  display: flex;\n+  justify-content: center;\n+  align-items: flex-start;\n+}\n+\n+.cover-box {\n+  text-align: center;\n+  position: relative;\n+  left: 10px;\n+  top: 1px;\n+  border: 0.1px solid #e7e7e7;\n+  padding: 0.7rem;\n+  border-radius: 12px;\n+  box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n+}\n+\n+.coverPreview {\n+  margin-bottom: 1rem;\n+  position: absolute 0;\n+  top: 0;\n+  left: 0;\n+}\n+\n+.btn-upload- {\n+  display: none;\n+  position: relative;\n+  top: 0;\n+  left: 0;\n+  z-index: 1;\n+}\n+.cover-box img {\n+  width: 200px;\n+  height: 280px;\n+  border: 1px solid #ddd;\n+  border-radius: 8px;\n+  object-fit: cover;\n+  margin-bottom: 1rem;\n+}\n+\n+.btn-upload {\n+  background: #f3f3f3;\n+  border-radius: 8px;\n+  padding: 0.6rem 1rem;\n+  cursor: pointer;\n+  color: #333;\n+  font-size: 0.9rem;\n+}\n+\n+.btn-upload:hover {\n+  background: #e5e5e5;\n+}\n+\n+/* Formulario */\n+.story-form {\n+  flex: 2;\n+  background: #fff;\n+  padding: 2rem;\n+  border-radius: 12px;\n+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);\n+}\n+\n+.story-details h3 {\n+  font-size: 1rem;\n+  margin-bottom: 1.5rem;\n+  border-bottom: 2px solid var(--accent-color, #f37335);\n+  display: inline-block;\n+  padding-bottom: 0.3rem;\n+}\n+\n+.form-group {\n+  margin-bottom: 1rem;\n+}\n+\n+.form-group label {\n+  display: block;\n+  margin-bottom: 0.4rem;\n+  font-size: 0.9rem;\n+  color: #444;\n+}\n+\n+.form-group input, \n+.form-group textarea, \n+.form-group select {\n+  width: 100%;\n+  padding: 0.8rem;\n+  border: 1px solid #ccc;\n+  border-radius: 8px;\n+  font-size: 0.95rem;\n+  outline: none;\n+}\n+\n+.inline-group {\n+  display: flex;\n+  gap: 0.5rem;\n+  align-items: center;\n+}\n+\n+.btn-add {\n+  padding: 0.6rem 1rem;\n+  background: var(--accent-color, #f37335);\n+  border: none;\n+  color: #fff;\n+  border-radius: 6px;\n+  cursor: pointer;\n+  font-weight: bold;\n+}\n+\n+.btn-add:hover {\n+  background: #e85c1a;\n+}\n+\n+/* Responsivo */\n+@media (max-width: 900px) {\n+  .new-story {\n+    flex-direction: column;\n+    padding: 1rem;\n+  }\n+\n+  .story-form {\n+    padding: 1.5rem;\n+  }\n+}\n"
+                },
+                {
+                    "date": 1762878514792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1052,9 +1052,9 @@\n   background: #f3f3f3;\n   color: #333;\n }\n \n-.btn-cancel:hover { background: #e5e5e5; }\n+.btn-canceler:hover { background: #e5e5e5; }\n \n .btn-save {\n   background: var(--accent-color, #f37335);\n   color: white;\n"
+                },
+                {
+                    "date": 1762878527470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1054,9 +1054,9 @@\n }\n \n .btn-canceler:hover { background: #e5e5e5; }\n \n-.btn-save {\n+.btn-savever {\n   background: var(--accent-color, #f37335);\n   color: white;\n }\n \n"
+                },
+                {
+                    "date": 1762878540031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1059,9 +1059,9 @@\n   background: var(--accent-color, #f37335);\n   color: white;\n }\n \n-.btn-save:hover { background: #e85c1a; }\n+.btn-savever:hover { background: #e85c1a; }\n \n /* Layout general */\n .new-storys {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762878548551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1047,9 +1047,9 @@\n   cursor: pointer;\n   transition: 0.3s;\n }\n \n-.btn-cancel {\n+.btn-canceler {\n   background: #f3f3f3;\n   color: #333;\n }\n \n"
+                },
+                {
+                    "date": 1762878565723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1038,9 +1038,9 @@\n   display: flex;\n   gap: 1rem;\n }\n \n-.btn-cancel, .btn-save {\n+.btn-canceler, .btn-savever {\n   padding: 0.6rem 1.4rem;\n   border-radius: 8px;\n   font-size: 0.9rem;\n   border: none;\n"
+                },
+                {
+                    "date": 1762878924888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1004,11 +1004,9 @@\n   margin-right: 0.4rem;\n   accent-color: var(--accent-color, #f37335);\n }\n \n-<!--=======Final formulario de Notificación======-->\n /* ====== FORMULARIO DE NOTIFICACIÓN ====== */\n-/* ====== CREAR HISTORIA ====== */\n .story-header {\n   display: flex;\n   justify-content: space-between;\n   align-items: center;\n"
+                },
+                {
+                    "date": 1762879409069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -544,9 +544,9 @@\n html, body {\n   margin: 0;\n   padding: 0;\n }\n-.register-container {\n+.register-containerwi {\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n"
+                },
+                {
+                    "date": 1762879415968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -544,9 +544,9 @@\n html, body {\n   margin: 0;\n   padding: 0;\n }\n-.register-containerwi {\n+.register-container-width {\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n"
+                },
+                {
+                    "date": 1762879422644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -544,9 +544,9 @@\n html, body {\n   margin: 0;\n   padding: 0;\n }\n-.register-container-width {\n+.register-container-w {\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n"
+                },
+                {
+                    "date": 1762879490370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -544,9 +544,10 @@\n html, body {\n   margin: 0;\n   padding: 0;\n }\n-.register-container-w {\n+.register-container-igm {\n+  position: relative;\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n"
+                },
+                {
+                    "date": 1762879501495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -546,8 +546,9 @@\n   padding: 0;\n }\n .register-container-igm {\n   position: relative;\n+  left: 500px;\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n"
+                },
+                {
+                    "date": 1762880107692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -540,217 +540,100 @@\n }\n /*=======Final pagina principal======*/\n \n /* ======= FORMULARIO DE REGISTRO ======= */\n+/* Reset */\n html, body {\n   margin: 0;\n   padding: 0;\n }\n+\n+/* Fondo de la página */\n .register-container-igm {\n-  position: relative;\n-  left: 500px;\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n-  background-image: url('/public/img/img.ico/fondo_register.jpg');\n+  background-image: url('/img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n+  background-size: cover;\n   background-position: center;\n-  background-repeat: no-repeat;\n-  background-size:var(--accent-color);\n }\n \n-html, body {\n-  margin: 0;\n-  padding: 0;\n-}\n-\n-\n-\n-.logo-LTRA img {\n-  max-height: 58px; /* el logo nunca será más alto que esto */\n-  width: 80%; /* mantiene proporción */\n-  height: 30%;\n-  margin-right: 1px;\n-  background-color: transparent;\n-  display: flex; /* elimina efectos de línea base */\n-}\n-html, body {\n-  margin: 0;\n-  padding: 0;\n-}\n-\n-.logo,\n-.logo-LTRA,\n-.logo-LTRA img {\n-  padding: 0;\n-  margin: 0;\n-  border: none;\n-  box-shadow: none;\n-}\n-\n-.Logps-navbar {\n-  background-color: transparent;\n-}\n-\n-.row {\n-    margin-left: -10px;\n-    margin-right: -10px;\n-}\n-\n-img {\n-  max-width: 100%;\n-  height: auto;\n-  border-radius: 10px;\n-  /*background-image: url('/public/img/img.ico/fondo_register.jpg');\n-  background-position: center;\n-  background-repeat: no-repeat;*/\n-  margin-left: auto;   /* lo empuja hacia la derecha */\n-  margin-right: auto;  /* lo centra */\n-}\n+/* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n-  top: 75px;\n-  bottom: 30;\n-  left: 84vh;\n-  right: auto;\n-  z-index: 10;\n+  top: 30px;\n+  left: 30px;\n }\n \n .logo-LTRA img {\n-  width: 10vw;   /* aumenta el ancho */\n-  height: 150px;   /* mantiene proporción */\n+  height: 80px;\n }\n \n+/* Tarjeta del formulario */\n .register-card {\n-  background: #fff;\n+  background: rgba(255, 255, 255, 0.96);\n   padding: 2.5rem;\n   border-radius: 15px;\n-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);\n+  box-shadow: 0 4px 20px rgba(0,0,0,0.20);\n   width: 100%;\n   max-width: 420px;\n   text-align: center;\n+  backdrop-filter: blur(6px);\n }\n \n+/* Títulos */\n .register-card h1 {\n   font-size: 1.8rem;\n   margin-bottom: 1rem;\n   color: var(--accent-color, #f39135);\n }\n \n-.register-card p {\n-  margin-bottom: 2rem;\n-  color: #666;\n-}\n-\n+/* Inputs */\n .register-form .form-group {\n   text-align: left;\n   margin-bottom: 1.2rem;\n }\n \n-.register-form label {\n-  display: block;\n-  font-size: 0.9rem;\n-  color: #444;\n-  margin-bottom: 0.3rem;\n-}\n-\n-\n .register-form input {\n-  width: 93%;\n+  width: 100%; /* ✅ ya no corta el ancho */\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 1rem;\n-  outline: none;\n-  transition: all 0.2s ease;\n }\n \n .register-form input:focus {\n-  border-color: var(--accent-color, #f5f5f5);\n+  border-color: var(--accent-color, #f39135);\n   box-shadow: 0 0 4px rgba(243,115,53,0.3);\n }\n \n+/* Botón */\n .btn-register {\n-  background-color: var(--accent-color, #040225);\n+  background-color: #040225;\n   color: white;\n   border: none;\n   width: 100%;\n   padding: 0.9rem;\n-  font-size: 1rem;\n   border-radius: 10px;\n   cursor: pointer;\n-  transition: background 0.3s;\n }\n \n .btn-register:hover {\n   background-color: #3d3d3d;\n }\n \n-.login-link {\n-  margin-top: 1rem;\n-  font-size: 0.9rem;\n-  color: #555;\n-  margin: 14px 0;\n-  margin-inline: var(--hover-bg);\n-  border: black 1px solid;\n-  border-radius: 15px;\n-  padding: 8px 20px;\n-  cursor: pointer;\n-  transition: background-color 0.3s ease;\n-  width: 70%;\n-  text-align: center;\n-  position: relative;\n-  left: 50%;\n-  transform: translateX(-50%);\n-  z-index: 1;\n-}\n-.login-link {\n-  border: none;\n-  background-color: transparent;\n-  color: rgb(255, 255, 255);\n-  font-weight: 500;\n-  cursor: pointer;\n-  transition: background-color 0.3s ease, transform 0.2s ease;\n-}\n-\n+/* Link de login */\n .login-link a {\n-  color: var(--accent-color, #f37335);\n+  color: #040225;\n+  font-weight: 600;\n   text-decoration: none;\n-  font-weight: 500;\n }\n \n .login-link a:hover {\n   text-decoration: underline;\n-  margin: auto;\n-  /*margin-inline: var(--hover-bg);*/\n-  /*border: #000000 1px solid;*/\n }\n \n-.footer-links {\n-  display: flex;\n-  justify-content: center;\n-  gap: 0.90rem;\n-  flex-wrap: wrap;\n-  margin-top: 1rem;\n-  padding: 10px 25px;\n-}\n-.footer-links a {\n-  color: #444;\n-  text-decoration: none;\n-}\n-\n-.footer-links a {\n-  font-size: 0.85rem;\n-  line-height: 1;\n-}\n-.footer-links {\n-  padding: 0px 20px;\n-}\n-\n-.footer-links {\n-  max-width: 600px;\n-  margin: 0 auto;\n-}\n /*=======Final formulario de registro======*/\n \n /* ====== FORMULARIO DE LOGIN ====== */\n main.loginIn-container .btn-loginIn {\n"
+                },
+                {
+                    "date": 1762880156693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -552,9 +552,9 @@\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n-  background-image: url('/img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n+  background-image: url('/public/img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n   background-size: cover;\n   background-position: center;\n }\n \n"
+                },
+                {
+                    "date": 1762880184158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -552,9 +552,9 @@\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n-  background-image: url('/public/img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n+  background-image: url('img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n   background-size: cover;\n   background-position: center;\n }\n \n"
+                },
+                {
+                    "date": 1762880210669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -552,9 +552,9 @@\n   display: flex;\n   justify-content: center;\n   align-items: center;\n   height: 100vh;\n-  background-image: url('img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n+  background-image: url('/public/img/img.ico/fondo_register.jpg'); /* ✅ sin /public */\n   background-size: cover;\n   background-position: center;\n }\n \n"
+                },
+                {
+                    "date": 1762880279434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -560,17 +560,16 @@\n \n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n-  top: 30px;\n+  top: 300px;\n   left: 30px;\n }\n \n .logo-LTRA img {\n   height: 80px;\n }\n \n-/* Tarjeta del formulario */\n .register-card {\n   background: rgba(255, 255, 255, 0.96);\n   padding: 2.5rem;\n   border-radius: 15px;\n@@ -580,16 +579,14 @@\n   text-align: center;\n   backdrop-filter: blur(6px);\n }\n \n-/* Títulos */\n .register-card h1 {\n   font-size: 1.8rem;\n   margin-bottom: 1rem;\n   color: var(--accent-color, #f39135);\n }\n \n-/* Inputs */\n .register-form .form-group {\n   text-align: left;\n   margin-bottom: 1.2rem;\n }\n"
+                },
+                {
+                    "date": 1762880309797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -560,10 +560,11 @@\n \n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n+\n   top: 300px;\n-  left: 30px;\n+  left: 300px;\n }\n \n .logo-LTRA img {\n   height: 80px;\n"
+                },
+                {
+                    "date": 1762880323975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -562,9 +562,9 @@\n .logo-LTRA {\n   position: absolute;\n \n   top: 300px;\n-  left: 300px;\n+  left: 420px;\n }\n \n .logo-LTRA img {\n   height: 80px;\n"
+                },
+                {
+                    "date": 1762880334563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,10 +561,10 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 300px;\n-  left: 420px;\n+  top: 30px;\n+  left: 430px;\n }\n \n .logo-LTRA img {\n   height: 80px;\n"
+                },
+                {
+                    "date": 1762880347088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,9 +561,9 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 30px;\n+  top: 50px;\n   left: 430px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762880359372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,10 +561,10 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 50px;\n-  left: 430px;\n+  top: 80px;\n+  left: 460px;\n }\n \n .logo-LTRA img {\n   height: 80px;\n"
+                },
+                {
+                    "date": 1762880370413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,9 +561,9 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 80px;\n+  top: 50px;\n   left: 460px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762880382730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,9 +561,9 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 50px;\n+  top: 50px 10px;\n   left: 460px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762880395410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,9 +561,9 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 50px 10px;\n+  top: 50px 1px;\n   left: 460px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762880401920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -561,9 +561,9 @@\n /* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n \n-  top: 50px 1px;\n+  top: 40px 1px;\n   left: 460px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762881002564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -540,15 +540,13 @@\n }\n /*=======Final pagina principal======*/\n \n /* ======= FORMULARIO DE REGISTRO ======= */\n-/* Reset */\n html, body {\n   margin: 0;\n   padding: 0;\n }\n \n-/* Fondo de la página */\n .register-container-igm {\n   display: flex;\n   justify-content: center;\n   align-items: center;\n@@ -557,12 +555,10 @@\n   background-size: cover;\n   background-position: center;\n }\n \n-/* Logo arriba */\n .logo-LTRA {\n   position: absolute;\n-\n   top: 40px 1px;\n   left: 460px;\n }\n \n"
+                },
+                {
+                    "date": 1762881009326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -557,9 +557,9 @@\n }\n \n .logo-LTRA {\n   position: absolute;\n-  top: 40px 1px;\n+  top: 40px 10px;\n   left: 460px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762881025924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -557,9 +557,9 @@\n }\n \n .logo-LTRA {\n   position: absolute;\n-  top: 40px 10px;\n+  top: 40px 1;\n   left: 460px;\n }\n \n .logo-LTRA img {\n"
+                },
+                {
+                    "date": 1762881615012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -557,9 +557,9 @@\n }\n \n .logo-LTRA {\n   position: absolute;\n-  top: 40px 1;\n+  top: 40px ;\n   left: 460px;\n }\n \n .logo-LTRA img {\n@@ -1035,9 +1035,9 @@\n \n .form-group input, \n .form-group textarea, \n .form-group select {\n-  width: 100%;\n+  width: 80%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n"
+                },
+                {
+                    "date": 1762881634630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1032,12 +1032,12 @@\n   font-size: 0.9rem;\n   color: #444;\n }\n \n-.form-group input, \n-.form-group textarea, \n+.form-group input,\n+.form-group textarea,\n .form-group select {\n-  width: 80%;\n+  width: 40%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n"
+                },
+                {
+                    "date": 1762881662671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1035,11 +1035,11 @@\n \n .form-group input,\n .form-group textarea,\n .form-group select {\n-  width: 40%;\n+  width: 100%;\n   padding: 0.8rem;\n-  border: 1px solid #ccc;\n+  border: px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n   outline: none;\n }\n"
+                },
+                {
+                    "date": 1762881709772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1039,9 +1039,9 @@\n   width: 100%;\n   padding: 0.8rem;\n   border: px solid #ccc;\n   border-radius: 8px;\n-  font-size: 0.95rem;\n+  font-size: 0.40rem;\n   outline: none;\n }\n \n .inline-group {\n"
+                },
+                {
+                    "date": 1762881743001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1022,9 +1022,9 @@\n   padding-bottom: 0.3rem;\n }\n \n .form-group {\n-  margin-bottom: 1rem;\n+  margin-bottom: .65rem;\n }\n \n .form-group label {\n   display: block;\n"
+                },
+                {
+                    "date": 1762881762467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1022,9 +1022,9 @@\n   padding-bottom: 0.3rem;\n }\n \n .form-group {\n-  margin-bottom: .65rem;\n+  margin-bottom: 1rem;\n }\n \n .form-group label {\n   display: block;\n@@ -1032,16 +1032,16 @@\n   font-size: 0.9rem;\n   color: #444;\n }\n \n-.form-group input,\n-.form-group textarea,\n+.form-group input, \n+.form-group textarea, \n .form-group select {\n   width: 100%;\n   padding: 0.8rem;\n-  border: px solid #ccc;\n+  border: 1px solid #ccc;\n   border-radius: 8px;\n-  font-size: 0.40rem;\n+  font-size: 0.95rem;\n   outline: none;\n }\n \n .inline-group {\n"
+                },
+                {
+                    "date": 1762881772450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1035,9 +1035,9 @@\n \n .form-group input, \n .form-group textarea, \n .form-group select {\n-  width: 100%;\n+  width: 80%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n"
+                },
+                {
+                    "date": 1762881786761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1035,9 +1035,9 @@\n \n .form-group input, \n .form-group textarea, \n .form-group select {\n-  width: 80%;\n+  width: 100%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n"
+                },
+                {
+                    "date": 1762881795000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1032,10 +1032,10 @@\n   font-size: 0.9rem;\n   color: #444;\n }\n \n-.form-group input, \n-.form-group textarea, \n+.form-group input,\n+.form-group textarea,\n .form-group select {\n   width: 100%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n"
+                },
+                {
+                    "date": 1762881805883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1042,8 +1042,14 @@\n   border-radius: 8px;\n   font-size: 0.95rem;\n   outline: none;\n }\n+.form-group input:focus,\n+.form-group textarea:focus,\n+.form-group select:focus {\n+  border-color: var(--accent-color, #f37335);\n+  box-shadow: 0 0 5px rgba(243,115,53,0.3);\n+}\n \n .inline-group {\n   display: flex;\n   gap: 0.5rem;\n"
+                },
+                {
+                    "date": 1762881858632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1042,13 +1042,11 @@\n   border-radius: 8px;\n   font-size: 0.95rem;\n   outline: none;\n }\n-.form-group input:focus,\n-.form-group textarea:focus,\n-.form-group select:focus {\n-  border-color: var(--accent-color, #f37335);\n-  box-shadow: 0 0 5px rgba(243,115,53,0.3);\n+\n+.form-group-categoria:nth-child(3) {\n+  margin-right: 1rem;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762881873192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1043,9 +1043,9 @@\n   font-size: 0.95rem;\n   outline: none;\n }\n \n-.form-group-categoria:nth-child(3) {\n+.form-group-categoria {\n   margin-right: 1rem;\n }\n \n .inline-group {\n"
+                },
+                {
+                    "date": 1762881885714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1045,8 +1045,9 @@\n }\n \n .form-group-categoria {\n   margin-right: 1rem;\n+  flex: 1;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762881946812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1046,8 +1046,9 @@\n \n .form-group-categoria {\n   margin-right: 1rem;\n   flex: 1;\n+  min-width: 200px;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762881967094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1046,9 +1046,8 @@\n \n .form-group-categoria {\n   margin-right: 1rem;\n   flex: 1;\n-  min-width: 200px;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762881982724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1044,10 +1044,9 @@\n   outline: none;\n }\n \n .form-group-categoria {\n-  margin-right: 1rem;\n-  flex: 1;\n+\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762882004005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1043,12 +1043,8 @@\n   font-size: 0.95rem;\n   outline: none;\n }\n \n-.form-group-categoria {\n-\n-}\n-\n .inline-group {\n   display: flex;\n   gap: 0.5rem;\n   align-items: center;\n"
+                },
+                {
+                    "date": 1762882518953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1041,8 +1041,9 @@\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n   outline: none;\n+  color: #ccc;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762882727543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1041,9 +1041,9 @@\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n   outline: none;\n-  color: #ccc;\n+  color: #ccc cadetblue;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762882738354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1041,9 +1041,8 @@\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 0.95rem;\n   outline: none;\n-  color: #ccc cadetblue;\n }\n \n .inline-group {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884657044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -968,8 +968,40 @@\n   border-radius: 12px;\n   box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n }\n \n+.story-cover {\n+  width: 260px;\n+  display: flex;\n+  justify-content: center;\n+}\n+\n+.cover-box {\n+  width: 100%;\n+  height: 400px;\n+  background: #ededed;\n+  border-radius: 12px;\n+  border: 1px dashed #aaa;\n+  display: flex;\n+  flex-direction: column;\n+  justify-content: center;\n+  align-items: center;\n+  color: #555;\n+  cursor: pointer;\n+  transition: border .3s ease, background .3s ease;\n+}\n+\n+.cover-box:hover {\n+  border-color: var(--accent-color, #f39135);\n+  background: #fafafa;\n+}\n+\n+.cover-icon {\n+  width: 70px;\n+  opacity: 0.7;\n+}\n+\n+\n .coverPreview {\n   margin-bottom: 1rem;\n   position: absolute 0;\n   top: 0;\n"
+                },
+                {
+                    "date": 1762884673293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -986,9 +986,8 @@\n   justify-content: center;\n   align-items: center;\n   color: #555;\n   cursor: pointer;\n-  transition: border .3s ease, background .3s ease;\n }\n \n .cover-box:hover {\n   border-color: var(--accent-color, #f39135);\n"
+                },
+                {
+                    "date": 1762884681700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 100%;\n-  height: 400px;\n+  height: 200px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884691839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,10 +975,10 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 100%;\n-  height: 200px;\n+  width: 80%;\n+  height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884704683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 80%;\n+  width: 89%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884712304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 89%;\n+  width: 70%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884722444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 70%;\n+  width: 68%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884731185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 68%;\n+  width: 60%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884739768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 60%;\n-  height: 300px;\n+  height: 340px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884764569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -969,9 +969,9 @@\n   box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n }\n \n .story-cover {\n-  width: 260px;\n+  width: 230px;\n   display: flex;\n   justify-content: center;\n }\n \n"
+                },
+                {
+                    "date": 1762884778538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 60%;\n-  height: 340px;\n+  height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884791792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 60%;\n+  width: 55%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884800125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 55%;\n+  width: 57%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884807322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 57%;\n+  width: 56%;\n   height: 300px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n"
+                },
+                {
+                    "date": 1762884822443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 56%;\n-  height: 300px;\n+  height: 330px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884830353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 56%;\n-  height: 330px;\n+  height: 335px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884837610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 56%;\n-  height: 335px;\n+  height: 325px;\n   background: #ededed;\n   border-radius: 12px;\n   border: 1px dashed #aaa;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884851172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,11 +976,11 @@\n }\n \n .cover-box {\n   width: 56%;\n-  height: 325px;\n+  height: 324px;\n   background: #ededed;\n-  border-radius: 12px;\n+  border-radius: 10px;\n   border: 1px dashed #aaa;\n   display: flex;\n   flex-direction: column;\n   justify-content: center;\n"
+                },
+                {
+                    "date": 1762884859340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -978,9 +978,9 @@\n .cover-box {\n   width: 56%;\n   height: 324px;\n   background: #ededed;\n-  border-radius: 10px;\n+  border-radius: 7px;\n   border: 1px dashed #aaa;\n   display: flex;\n   flex-direction: column;\n   justify-content: center;\n"
+                },
+                {
+                    "date": 1762884879775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -994,9 +994,9 @@\n   background: #fafafa;\n }\n \n .cover-icon {\n-  width: 70px;\n+  width: 50px;\n   opacity: 0.7;\n }\n \n \n"
+                },
+                {
+                    "date": 1762884897745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -984,9 +984,9 @@\n   display: flex;\n   flex-direction: column;\n   justify-content: center;\n   align-items: center;\n-  color: #555;\n+  color: #b3b3b3;\n   cursor: pointer;\n }\n \n .cover-box:hover {\n@@ -994,9 +994,9 @@\n   background: #fafafa;\n }\n \n .cover-icon {\n-  width: 50px;\n+  width: 20px;\n   opacity: 0.7;\n }\n \n \n"
+                },
+                {
+                    "date": 1762884908066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -979,9 +979,9 @@\n   width: 56%;\n   height: 324px;\n   background: #ededed;\n   border-radius: 7px;\n-  border: 1px dashed #aaa;\n+  border: 1px dashed #e9e9e9;\n   display: flex;\n   flex-direction: column;\n   justify-content: center;\n   align-items: center;\n"
+                },
+                {
+                    "date": 1762884920262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -969,9 +969,9 @@\n   box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n }\n \n .story-cover {\n-  width: 230px;\n+  width: 200px;\n   display: flex;\n   justify-content: center;\n }\n \n"
+                },
+                {
+                    "date": 1762884931257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 56%;\n-  height: 324px;\n+  height: 304px;\n   background: #ededed;\n   border-radius: 7px;\n   border: 1px dashed #e9e9e9;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884941803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -976,9 +976,9 @@\n }\n \n .cover-box {\n   width: 56%;\n-  height: 304px;\n+  height: 324px;\n   background: #ededed;\n   border-radius: 7px;\n   border: 1px dashed #e9e9e9;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762884962229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -965,9 +965,9 @@\n   top: 1px;\n   border: 0.1px solid #e7e7e7;\n   padding: 0.7rem;\n   border-radius: 12px;\n-  box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n+  box-shadow: 0 2px 10px rgba(201, 200, 200, 0.1);\n }\n \n .story-cover {\n   width: 200px;\n"
+                },
+                {
+                    "date": 1762884976243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -965,9 +965,9 @@\n   top: 1px;\n   border: 0.1px solid #e7e7e7;\n   padding: 0.7rem;\n   border-radius: 12px;\n-  box-shadow: 0 2px 10px rgba(201, 200, 200, 0.1);\n+  box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n }\n \n .story-cover {\n   width: 200px;\n"
+                },
+                {
+                    "date": 1762884983713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -965,9 +965,9 @@\n   top: 1px;\n   border: 0.1px solid #e7e7e7;\n   padding: 0.7rem;\n   border-radius: 12px;\n-  box-shadow: 0 2px 10px rgba(252, 252, 252, 0.1);\n+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);\n }\n \n .story-cover {\n   width: 200px;\n"
+                },
+                {
+                    "date": 1762884999142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,9 +975,9 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 56%;\n+  width: 50%;\n   height: 324px;\n   background: #ededed;\n   border-radius: 7px;\n   border: 1px dashed #e9e9e9;\n"
+                },
+                {
+                    "date": 1762885013240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -975,10 +975,10 @@\n   justify-content: center;\n }\n \n .cover-box {\n-  width: 50%;\n-  height: 324px;\n+  width: 56%;\n+  height: 300px;\n   background: #ededed;\n   border-radius: 7px;\n   border: 1px dashed #e9e9e9;\n   display: flex;\n"
+                },
+                {
+                    "date": 1762885029171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -973,9 +973,9 @@\n   width: 200px;\n   display: flex;\n   justify-content: center;\n }\n-\n+/*\n .cover-box {\n   width: 56%;\n   height: 300px;\n   background: #ededed;\n@@ -987,9 +987,9 @@\n   align-items: center;\n   color: #b3b3b3;\n   cursor: pointer;\n }\n-\n+*/\n .cover-box:hover {\n   border-color: var(--accent-color, #f39135);\n   background: #fafafa;\n }\n"
+                },
+                {
+                    "date": 1762885055751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -969,9 +969,9 @@\n   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);\n }\n \n .story-cover {\n-  width: 200px;\n+  width: 220px;\n   display: flex;\n   justify-content: center;\n }\n /*\n"
+                },
+                {
+                    "date": 1762885063713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -969,9 +969,9 @@\n   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);\n }\n \n .story-cover {\n-  width: 220px;\n+  width: 290px;\n   display: flex;\n   justify-content: center;\n }\n /*\n"
+                },
+                {
+                    "date": 1762885081903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -969,9 +969,9 @@\n   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);\n }\n \n .story-cover {\n-  width: 290px;\n+  width: 200px;\n   display: flex;\n   justify-content: center;\n }\n /*\n@@ -989,9 +989,9 @@\n   cursor: pointer;\n }\n */\n .cover-box:hover {\n-  border-color: var(--accent-color, #f39135);\n+  border-color: var(--accent-color, #afafaf);\n   background: #fafafa;\n }\n \n .cover-icon {\n"
+                },
+                {
+                    "date": 1762885092892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -989,9 +989,9 @@\n   cursor: pointer;\n }\n */\n .cover-box:hover {\n-  border-color: var(--accent-color, #afafaf);\n+  border-color: var(--accent-color, #e7e7e7);\n   background: #fafafa;\n }\n \n .cover-icon {\n"
+                },
+                {
+                    "date": 1762885108106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -905,9 +905,9 @@\n   color: #333;\n }\n \n .back-link {\n-  color: var(--accent-color, #f37335);\n+  color: var(--accent-color, #f3f3f3);\n   text-decoration: none;\n   font-weight: bold;\n }\n \n"
+                },
+                {
+                    "date": 1762885153158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1047,9 +1047,9 @@\n \n .story-details h3 {\n   font-size: 1rem;\n   margin-bottom: 1.5rem;\n-  border-bottom: 2px solid var(--accent-color, #f37335);\n+  border-bottom: 2px solid var(--accent-color, #f0f0f0);\n   display: inline-block;\n   padding-bottom: 0.3rem;\n }\n \n"
+                },
+                {
+                    "date": 1762885164349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1046,9 +1046,9 @@\n }\n \n .story-details h3 {\n   font-size: 1rem;\n-  margin-bottom: 1.5rem;\n+  margin-bottom: 1rem;\n   border-bottom: 2px solid var(--accent-color, #f0f0f0);\n   display: inline-block;\n   padding-bottom: 0.3rem;\n }\n"
+                },
+                {
+                    "date": 1762885173017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1046,9 +1046,9 @@\n }\n \n .story-details h3 {\n   font-size: 1rem;\n-  margin-bottom: 1rem;\n+  margin-bottom: 1.6rem;\n   border-bottom: 2px solid var(--accent-color, #f0f0f0);\n   display: inline-block;\n   padding-bottom: 0.3rem;\n }\n"
+                },
+                {
+                    "date": 1762885184691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1047,9 +1047,9 @@\n \n .story-details h3 {\n   font-size: 1rem;\n   margin-bottom: 1.6rem;\n-  border-bottom: 2px solid var(--accent-color, #f0f0f0);\n+  border-bottom: 1px solid var(--accent-color, #f0f0f0);\n   display: inline-block;\n   padding-bottom: 0.3rem;\n }\n \n"
+                },
+                {
+                    "date": 1762885385141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -905,9 +905,9 @@\n   color: #333;\n }\n \n .back-link {\n-  color: var(--accent-color, #f3f3f3);\n+  color: var(--accent-color, #83e2fa);\n   text-decoration: none;\n   font-weight: bold;\n }\n \n"
+                },
+                {
+                    "date": 1762885447965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1082,9 +1082,9 @@\n }\n \n .btn-add {\n   padding: 0.6rem 1rem;\n-  background: var(--accent-color, #f37335);\n+  background: var(--accent-color, #83e2fa);\n   border: none;\n   color: #fff;\n   border-radius: 6px;\n   cursor: pointer;\n"
+                },
+                {
+                    "date": 1762885459241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1091,9 +1091,9 @@\n   font-weight: bold;\n }\n \n .btn-add:hover {\n-  background: #e85c1a;\n+  background: #83e2fa;\n }\n \n /* Responsivo */\n @media (max-width: 900px) {\n"
+                },
+                {
+                    "date": 1762885480719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -932,9 +932,9 @@\n \n .btn-canceler:hover { background: #e5e5e5; }\n \n .btn-savever {\n-  background: var(--accent-color, #f37335);\n+  background: var(--accent-color, #83e2fa);\n   color: white;\n }\n \n .btn-savever:hover { background: #e85c1a; }\n"
+                },
+                {
+                    "date": 1762885496189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -936,9 +936,9 @@\n   background: var(--accent-color, #83e2fa);\n   color: white;\n }\n \n-.btn-savever:hover { background: #e85c1a; }\n+.btn-savever:hover { background: #9af1d4; }\n \n /* Layout general */\n .new-storys {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762885507202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -936,9 +936,9 @@\n   background: var(--accent-color, #83e2fa);\n   color: white;\n }\n \n-.btn-savever:hover { background: #9af1d4; }\n+.btn-savever:hover { background: #a0ecd3; }\n \n /* Layout general */\n .new-storys {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762885676508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -750,9 +750,9 @@\n   margin-bottom: 0.3rem;\n }\n \n .form-login input {\n-  width: 88%;\n+  width: 90%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 1rem;\n"
+                },
+                {
+                    "date": 1762885685956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -750,9 +750,9 @@\n   margin-bottom: 0.3rem;\n }\n \n .form-login input {\n-  width: 90%;\n+  width: 95%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 1rem;\n"
+                },
+                {
+                    "date": 1762885713948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -750,9 +750,9 @@\n   margin-bottom: 0.3rem;\n }\n \n .form-login input {\n-  width: 95%;\n+  width: 88%;\n   padding: 0.8rem;\n   border: 1px solid #ccc;\n   border-radius: 8px;\n   font-size: 1rem;\n"
+                },
+                {
+                    "date": 1762885720523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -936,9 +936,9 @@\n   background: var(--accent-color, #83e2fa);\n   color: white;\n }\n \n-.btn-savever:hover { background: #a0ecd3; }\n+.btn-savever:hover { background: #9af1d4; }\n \n /* Layout general */\n .new-storys {\n   display: flex;\n"
+                },
+                {
+                    "date": 1762885800463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -957,8 +957,13 @@\n   justify-content: center;\n   align-items: flex-start;\n }\n \n+.story-cover p {\n+  margin-top: 0.5rem;\n+  font-size: 0.9rem;\n+  color: #666;\n+}\n .cover-box {\n   text-align: center;\n   position: relative;\n   left: 10px;\n"
+                },
+                {
+                    "date": 1762894785669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -962,8 +962,9 @@\n   margin-top: 0.5rem;\n   font-size: 0.9rem;\n   color: #666;\n }\n+\n .cover-box {\n   text-align: center;\n   position: relative;\n   left: 10px;\n"
+                },
+                {
+                    "date": 1762902349260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -470,9 +470,8 @@\n .featured-story .info {\n   padding: 2rem;\n }\n \n-/* === Footer === */\n footer {\n   background: #ffffff;\n   text-align: center;\n   padding: 2rem;\n@@ -485,8 +484,9 @@\n   justify-content: center;\n   gap: 1.5rem;\n   flex-wrap: wrap;\n   margin-bottom: 0.8rem;\n+  gap: 15px;\n \n }\n \n .footer-links a {\n"
+                },
+                {
+                    "date": 1762916030881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1111,4 +1111,169 @@\n   .story-form {\n     padding: 1.5rem;\n   }\n }\n+\n+/* ======== BIBLIOTECA  ======== */\n+.library-page {\n+  max-width: 1000px;\n+  margin: 30px auto;\n+  padding: 0 20px;\n+  display: flex;\n+  flex-direction: column;\n+  align-items: center;\n+  font-family: 'Poppins', sans-serif;\n+}\n+\n+/* Encabezado */\n+.library-header {\n+  width: 100%;\n+  border-bottom: 1px solid #ddd;\n+  padding-bottom: 10px;\n+  margin-bottom: 25px;\n+}\n+\n+.library-header h1 {\n+  font-size: 28px;\n+  font-weight: 600;\n+  color: #222;\n+  margin-bottom: 12px;\n+  text-align: left;\n+}\n+\n+/* Botones de pestañas */\n+.library-tabs {\n+  display: flex;\n+  gap: 30px;\n+  margin-left: 5px;\n+}\n+\n+.library-tabs .tab-btn {\n+  background: none;\n+  border: none;\n+  font-weight: 600;\n+  color: #666;\n+  cursor: pointer;\n+  padding: 6px 10px;\n+  position: relative;\n+  transition: color 0.3s ease;\n+}\n+\n+.library-tabs .tab-btn:hover {\n+  color: #f39135;\n+}\n+\n+/* Línea naranja debajo de la pestaña activa */\n+.library-tabs .tab-btn.active::after {\n+  content: \"\";\n+  position: absolute;\n+  left: 0;\n+  bottom: -6px;\n+  width: 100%;\n+  height: 3px;\n+  background-color: #f39135;\n+  border-radius: 2px;\n+}\n+\n+/* Título de sección */\n+.section-title {\n+  width: 100%;\n+  font-size: 16px;\n+  font-weight: 600;\n+  color: #333;\n+  text-align: left;\n+  margin-bottom: 20px;\n+}\n+\n+/* GRID de historias */\n+.library-grid {\n+  display: grid;\n+  grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n+  gap: 24px;\n+  width: 100%;\n+  justify-items: center;\n+}\n+\n+/* Cada tarjeta */\n+.library-item {\n+  width: 150px; /* 🔸 Más pequeño */\n+  text-align: left;\n+  color: #333;\n+  transition: transform 0.2s ease;\n+}\n+\n+.library-item:hover {\n+  transform: scale(1.05);\n+}\n+\n+/* Imagen de portada */\n+.cover {\n+  width: 100%;\n+  height: 190px; /* 🔸 Más pequeña */\n+  border-radius: 10px;\n+  object-fit: cover;\n+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);\n+}\n+\n+/* Título */\n+.title {\n+  font-size: 0.9rem;\n+  font-weight: 600;\n+  margin: 6px 0 3px 0;\n+  white-space: nowrap;\n+  overflow: hidden;\n+  text-overflow: ellipsis;\n+}\n+\n+/* Autor y avatar */\n+.author {\n+  display: flex;\n+  align-items: center;\n+  gap: 6px;\n+  margin-bottom: 4px;\n+}\n+\n+.author img {\n+  width: 20px;\n+  height: 20px;\n+  border-radius: 50%;\n+  object-fit: cover;\n+}\n+\n+.author span {\n+  font-size: 0.78rem;\n+  color: #555;\n+}\n+\n+/* Vistas */\n+.meta {\n+  font-size: 0.75rem;\n+  color: #777;\n+}\n+\n+/* Centrado y márgenes */\n+.library-grid {\n+  justify-content: center;\n+  text-align: center;\n+}\n+\n+/* Responsivo */\n+@media (max-width: 900px) {\n+  .library-grid {\n+    grid-template-columns: repeat(3, 1fr);\n+  }\n+}\n+\n+@media (max-width: 600px) {\n+  .library-grid {\n+    grid-template-columns: repeat(2, 1fr);\n+  }\n+  .cover {\n+    height: 160px;\n+  }\n+}\n+\n+@media (max-width: 400px) {\n+  .library-grid {\n+    grid-template-columns: 1fr;\n+  }\n+}\n"
+                },
+                {
+                    "date": 1762985798308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1194,43 +1194,36 @@\n }\n \n /* Cada tarjeta */\n .library-item {\n-  width: 150px; /* 🔸 Más pequeño */\n+  width: 160px;\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n }\n \n-.library-item:hover {\n-  transform: scale(1.05);\n-}\n-\n-/* Imagen de portada */\n .cover {\n   width: 100%;\n-  height: 190px; /* 🔸 Más pequeña */\n-  border-radius: 10px;\n+  height: 210px;\n+  border-radius: 8px;\n   object-fit: cover;\n-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);\n+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);\n }\n \n-/* Título */\n .title {\n   font-size: 0.9rem;\n   font-weight: 600;\n-  margin: 6px 0 3px 0;\n+  margin: 6px 0 2px;\n   white-space: nowrap;\n   overflow: hidden;\n   text-overflow: ellipsis;\n }\n \n-/* Autor y avatar */\n .author {\n   display: flex;\n   align-items: center;\n   gap: 6px;\n-  margin-bottom: 4px;\n+  margin-bottom: 3px;\n }\n \n .author img {\n   width: 20px;\n@@ -1238,19 +1231,14 @@\n   border-radius: 50%;\n   object-fit: cover;\n }\n \n-.author span {\n-  font-size: 0.78rem;\n-  color: #555;\n-}\n-\n-/* Vistas */\n .meta {\n   font-size: 0.75rem;\n   color: #777;\n }\n \n+\n /* Centrado y márgenes */\n .library-grid {\n   justify-content: center;\n   text-align: center;\n"
+                },
+                {
+                    "date": 1762986044173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1236,9 +1236,23 @@\n   font-size: 0.75rem;\n   color: #777;\n }\n \n+.meta {\n+  display: flex;\n+  align-items: center;\n+  gap: 4px;\n+  font-size: 0.75rem;\n+  color: #777;\n+}\n \n+.meta .icon-eye {\n+  width: 14px;\n+  height: 14px;\n+  opacity: 0.7;\n+}\n+\n+\n /* Centrado y márgenes */\n .library-grid {\n   justify-content: center;\n   text-align: center;\n"
+                },
+                {
+                    "date": 1762986111738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1245,9 +1245,9 @@\n   color: #777;\n }\n \n .meta .icon-eye {\n-  width: 14px;\n+  width: 18px;\n   height: 14px;\n   opacity: 0.7;\n }\n \n"
+                },
+                {
+                    "date": 1762986128342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1245,10 +1245,10 @@\n   color: #777;\n }\n \n .meta .icon-eye {\n-  width: 18px;\n-  height: 14px;\n+  width: 20px;\n+  height: 20px;\n   opacity: 0.7;\n }\n \n \n"
+                },
+                {
+                    "date": 1762986373761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1192,11 +1192,11 @@\n   width: 100%;\n   justify-items: center;\n }\n \n-/* Cada tarjeta */\n+/* Cada tarjeta portada de los libros */\n .library-item {\n-  width: 160px;\n+  width: 140px;\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n }\n"
+                },
+                {
+                    "date": 1762986391226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1202,9 +1202,9 @@\n }\n \n .cover {\n   width: 100%;\n-  height: 210px;\n+  height: 170px;\n   border-radius: 8px;\n   object-fit: cover;\n   box-shadow: 0 4px 10px rgba(0,0,0,0.08);\n }\n"
+                },
+                {
+                    "date": 1762986426932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1209,9 +1209,9 @@\n   box-shadow: 0 4px 10px rgba(0,0,0,0.08);\n }\n \n .title {\n-  font-size: 0.9rem;\n+  font-size: 0.85rem;\n   font-weight: 600;\n   margin: 6px 0 2px;\n   white-space: nowrap;\n   overflow: hidden;\n"
+                },
+                {
+                    "date": 1762986445578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1231,8 +1231,12 @@\n   border-radius: 50%;\n   object-fit: cover;\n }\n \n+.author span {\n+  font-size: 0.75rem;\n+}\n+\n .meta {\n   font-size: 0.75rem;\n   color: #777;\n }\n"
+                },
+                {
+                    "date": 1762986463685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1233,8 +1233,9 @@\n }\n \n .author span {\n   font-size: 0.75rem;\n+  gap: calc(2);\n }\n \n .meta {\n   font-size: 0.75rem;\n"
+                },
+                {
+                    "date": 1762986471070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1233,9 +1233,9 @@\n }\n \n .author span {\n   font-size: 0.75rem;\n-  gap: calc(2);\n+  gap: calc(10);\n }\n \n .meta {\n   font-size: 0.75rem;\n"
+                },
+                {
+                    "date": 1762986483996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1233,9 +1233,9 @@\n }\n \n .author span {\n   font-size: 0.75rem;\n-  gap: calc(10);\n+  gap: calc(10px);\n }\n \n .meta {\n   font-size: 0.75rem;\n"
+                },
+                {
+                    "date": 1762986502933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1198,8 +1198,9 @@\n   width: 140px;\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n+  gap: calc(10px);\n }\n \n .cover {\n   width: 100%;\n"
+                },
+                {
+                    "date": 1762986535775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,9 +1187,9 @@\n /* GRID de historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n-  gap: 24px;\n+  gap: 18px;\n   width: 100%;\n   justify-items: center;\n }\n \n"
+                },
+                {
+                    "date": 1762986543752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,9 +1187,9 @@\n /* GRID de historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n-  gap: 18px;\n+  gap: 10px;\n   width: 100%;\n   justify-items: center;\n }\n \n"
+                },
+                {
+                    "date": 1762986554349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,9 +1187,9 @@\n /* GRID de historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n-  gap: 10px;\n+  gap: 7px;\n   width: 100%;\n   justify-items: center;\n }\n \n"
+                },
+                {
+                    "date": 1762986566518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,9 +1187,9 @@\n /* GRID de historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n-  gap: 7px;\n+  gap: 2px;\n   width: 100%;\n   justify-items: center;\n }\n \n"
+                },
+                {
+                    "date": 1762986576050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1189,9 +1189,9 @@\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n   gap: 2px;\n   width: 100%;\n-  justify-items: center;\n+  justify-items: left;\n }\n \n /* Cada tarjeta portada de los libros */\n .library-item {\n"
+                },
+                {
+                    "date": 1762986588624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,11 +1187,11 @@\n /* GRID de historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n-  gap: 2px;\n+  gap: 0px;\n   width: 100%;\n-  justify-items: left;\n+  justify-items: right;\n }\n \n /* Cada tarjeta portada de los libros */\n .library-item {\n"
+                },
+                {
+                    "date": 1762986596961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1188,9 +1188,9 @@\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n   gap: 0px;\n-  width: 100%;\n+  width:900%;\n   justify-items: right;\n }\n \n /* Cada tarjeta portada de los libros */\n"
+                },
+                {
+                    "date": 1762986817118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1183,14 +1183,14 @@\n   text-align: left;\n   margin-bottom: 20px;\n }\n \n-/* GRID de historias */\n+/* historias */\n .library-grid {\n   display: grid;\n-  grid-template-columns: repeat(4, 1fr); /* 🔸 Siempre 4 columnas */\n+  grid-template-columns: repeat(4, 1fr);\n   gap: 0px;\n-  width:900%;\n+  width: 100%;\n   justify-items: right;\n }\n \n /* Cada tarjeta portada de los libros */\n"
+                },
+                {
+                    "date": 1762986967150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,11 +1187,11 @@\n /* historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n-  gap: 0px;\n+  gap: 12px;\n   width: 100%;\n-  justify-items: right;\n+  justify-items: center;\n }\n \n /* Cada tarjeta portada de los libros */\n .library-item {\n"
+                },
+                {
+                    "date": 1762987030757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1189,8 +1189,9 @@\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n   gap: 12px;\n   width: 100%;\n+  row-gap: 40px;\n   justify-items: center;\n }\n \n /* Cada tarjeta portada de los libros */\n"
+                },
+                {
+                    "date": 1762987046431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1191,8 +1191,9 @@\n   gap: 12px;\n   width: 100%;\n   row-gap: 40px;\n   justify-items: center;\n+  align-items: start;\n }\n \n /* Cada tarjeta portada de los libros */\n .library-item {\n"
+                },
+                {
+                    "date": 1762987077151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1189,9 +1189,9 @@\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n   gap: 12px;\n   width: 100%;\n-  row-gap: 40px;\n+  row-gap: 60px;\n   justify-items: center;\n   align-items: start;\n }\n \n"
+                },
+                {
+                    "date": 1762987104979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1201,8 +1201,9 @@\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n   gap: calc(10px);\n+  row-gap: 40px;\n }\n \n .cover {\n   width: 100%;\n"
+                },
+                {
+                    "date": 1762987116862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1200,10 +1200,8 @@\n   width: 140px;\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n-  gap: calc(10px);\n-  row-gap: 40px;\n }\n \n .cover {\n   width: 100%;\n"
+                },
+                {
+                    "date": 1762987141336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1196,9 +1196,9 @@\n }\n \n /* Cada tarjeta portada de los libros */\n .library-item {\n-  width: 140px;\n+  width: 120px;\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n }\n"
+                },
+                {
+                    "date": 1762987346352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,15 +1187,17 @@\n /* historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n-  gap: 12px;\n+  column-gap: 16px;   /* 🔸 separa horizontalmente (menos ancho entre libros) */\n+  row-gap: 50px;      /* 🔸 buen espacio entre filas */\n   width: 100%;\n-  row-gap: 60px;\n-  justify-items: center;\n+  justify-items: center; /* centra las tarjetas */\n   align-items: start;\n+  text-align: left; /* el texto de título y autor alineado como en Wattpad */\n }\n \n+\n /* Cada tarjeta portada de los libros */\n .library-item {\n   width: 120px;\n   text-align: left;\n"
+                },
+                {
+                    "date": 1762987366286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,10 +1187,10 @@\n /* historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n-  column-gap: 16px;   /* 🔸 separa horizontalmente (menos ancho entre libros) */\n-  row-gap: 50px;      /* 🔸 buen espacio entre filas */\n+  column-gap: 14px;   /* 🔸 separa horizontalmente (menos ancho entre libros) */\n+  row-gap: 48px;      /* 🔸 buen espacio entre filas */\n   width: 100%;\n   justify-items: center; /* centra las tarjetas */\n   align-items: start;\n   text-align: left; /* el texto de título y autor alineado como en Wattpad */\n"
+                },
+                {
+                    "date": 1762987581103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1187,14 +1187,15 @@\n /* historias */\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n-  column-gap: 14px;   /* 🔸 separa horizontalmente (menos ancho entre libros) */\n-  row-gap: 48px;      /* 🔸 buen espacio entre filas */\n+  column-gap: 14px;\n+  row-gap: 48px;\n   width: 100%;\n-  justify-items: center; /* centra las tarjetas */\n+  justify-items: center;\n   align-items: start;\n-  text-align: left; /* el texto de título y autor alineado como en Wattpad */\n+  margin-top: 20px;\n+  text-align: left;\n }\n \n \n /* Cada tarjeta portada de los libros */\n"
+                },
+                {
+                    "date": 1762987596849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1190,8 +1190,9 @@\n   grid-template-columns: repeat(4, 1fr);\n   column-gap: 14px;\n   row-gap: 48px;\n   width: 100%;\n+  max-width: 900px;\n   justify-items: center;\n   align-items: start;\n   margin-top: 20px;\n   text-align: left;\n"
+                },
+                {
+                    "date": 1762987608282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1188,9 +1188,9 @@\n .library-grid {\n   display: grid;\n   grid-template-columns: repeat(4, 1fr);\n   column-gap: 14px;\n-  row-gap: 48px;\n+  row-gap: 70px;\n   width: 100%;\n   max-width: 900px;\n   justify-items: center;\n   align-items: start;\n"
+                },
+                {
+                    "date": 1762987623439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1200,9 +1200,9 @@\n \n \n /* Cada tarjeta portada de los libros */\n .library-item {\n-  width: 120px;\n+  width: 140px;\n   text-align: left;\n   color: #333;\n   transition: transform 0.2s ease;\n }\n"
+                },
+                {
+                    "date": 1762987696482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1200,93 +1200,91 @@\n \n \n /* Cada tarjeta portada de los libros */\n .library-item {\n-  width: 140px;\n+  width: 140px; /* tamaño similar al de Wattpad */\n   text-align: left;\n   color: #333;\n-  transition: transform 0.2s ease;\n+  transition: transform 0.25s ease;\n+  cursor: pointer;\n }\n \n+.library-item:hover {\n+  transform: translateY(-4px);\n+}\n+\n+/* Imagen de portada */\n .cover {\n   width: 100%;\n-  height: 170px;\n+  height: 200px;\n   border-radius: 8px;\n   object-fit: cover;\n-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);\n+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n }\n \n+/* Título */\n .title {\n-  font-size: 0.85rem;\n+  font-size: 0.9rem;\n   font-weight: 600;\n-  margin: 6px 0 2px;\n+  margin: 6px 0 3px 0;\n   white-space: nowrap;\n   overflow: hidden;\n   text-overflow: ellipsis;\n+  color: #222;\n }\n \n+/* Autor y avatar */\n .author {\n   display: flex;\n   align-items: center;\n   gap: 6px;\n   margin-bottom: 3px;\n }\n \n .author img {\n-  width: 20px;\n-  height: 20px;\n+  width: 22px;\n+  height: 22px;\n   border-radius: 50%;\n   object-fit: cover;\n }\n \n .author span {\n   font-size: 0.75rem;\n-  gap: calc(10px);\n+  color: #555;\n }\n \n+/* Vistas e íconos */\n .meta {\n-  font-size: 0.75rem;\n-  color: #777;\n-}\n-\n-.meta {\n   display: flex;\n   align-items: center;\n-  gap: 4px;\n+  gap: 6px;\n   font-size: 0.75rem;\n   color: #777;\n }\n \n .meta .icon-eye {\n-  width: 20px;\n-  height: 20px;\n+  width: 16px;\n+  height: 16px;\n   opacity: 0.7;\n }\n \n-\n-/* Centrado y márgenes */\n-.library-grid {\n-  justify-content: center;\n-  text-align: center;\n-}\n-\n-/* Responsivo */\n-@media (max-width: 900px) {\n+/* Responsividad */\n+@media (max-width: 950px) {\n   .library-grid {\n     grid-template-columns: repeat(3, 1fr);\n   }\n }\n \n-@media (max-width: 600px) {\n+@media (max-width: 650px) {\n   .library-grid {\n     grid-template-columns: repeat(2, 1fr);\n   }\n   .cover {\n-    height: 160px;\n+    height: 170px;\n   }\n }\n \n-@media (max-width: 400px) {\n+@media (max-width: 450px) {\n   .library-grid {\n     grid-template-columns: 1fr;\n   }\n }\n"
+                },
+                {
+                    "date": 1762987718677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1204,9 +1204,8 @@\n   width: 140px; /* tamaño similar al de Wattpad */\n   text-align: left;\n   color: #333;\n   transition: transform 0.25s ease;\n-  cursor: pointer;\n }\n \n .library-item:hover {\n   transform: translateY(-4px);\n"
+                },
+                {
+                    "date": 1762987805647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1158,9 +1158,9 @@\n   transition: color 0.3s ease;\n }\n \n .library-tabs .tab-btn:hover {\n-  color: #f39135;\n+  color: #e97509;\n }\n \n /* Línea naranja debajo de la pestaña activa */\n .library-tabs .tab-btn.active::after {\n"
+                },
+                {
+                    "date": 1762989233011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1158,9 +1158,9 @@\n   transition: color 0.3s ease;\n }\n \n .library-tabs .tab-btn:hover {\n-  color: #e97509;\n+  color: #83e2fa;\n }\n \n /* Línea naranja debajo de la pestaña activa */\n .library-tabs .tab-btn.active::after {\n"
+                },
+                {
+                    "date": 1762989244662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1158,9 +1158,9 @@\n   transition: color 0.3s ease;\n }\n \n .library-tabs .tab-btn:hover {\n-  color: #83e2fa;\n+  color: #404242;\n }\n \n /* Línea naranja debajo de la pestaña activa */\n .library-tabs .tab-btn.active::after {\n"
                 }
             ],
             "date": 1761617475014,

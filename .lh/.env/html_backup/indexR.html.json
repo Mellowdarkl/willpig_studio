@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1761876153374,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1762879458866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n       <span class=\"logo-text\"></span>\n     </div>\n   <div class=\"row\"></div>\n \n-  <main class=\"register-container\">\n+  <main class=\"register-container-igm\">\n     <div class=\"register-card\">\n       <h1>Crear una cuenta</h1>\n       <p>Únete a Willpig Studio y comparte tus historias ilustradas.</p>\n \n"
                 }
             ],
             "date": 1761876153374,

@@ -1,26 +1,23 @@
-
 {
   "name": "willpig_studio",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "node app.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "mysql2": "^3.15.2",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   },
-  "description": "",
-  "keywords": [],
-  "author": "",
   "license": "ISC"
-}
-
-"scripts": {
-  "dev": "nodemon app.js"
 }
