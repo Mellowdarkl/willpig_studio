@@ -1,0 +1,12 @@
+#Ignore node_modules
+node_modules
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
+
+# Sensitive files
+.env
+
+# VS Code History
+.history/
+.lh/

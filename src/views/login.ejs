@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iniciar sesión | Willpig Studio</title>
-  <link rel="stylesheet" href="/css/style1.2.css" />
-  <link rel="icon" href="/img/img.ico/logo.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión | Willpig Studio</title>
+    <link rel="stylesheet" href="/css/style1.2.css" />
+    <link rel="icon" href="/img/img.ico/logo.ico" />
 </head>
 
 <body>
@@ -37,7 +37,12 @@
             </form>
 
             <!-- ENLACES -->
-            <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+            <a href="/auth/olvido" class="forgot">¿Olvidaste tu contraseña?</a>
+            
+            <!-- si venimos de la página de olvido con mensaje, se muestra -->
+            <% if (typeof error !== "undefined" && error.startsWith('Se ha enviado')) { %>
+                <p style="color: green;"><%= error %></p>
+            <% } %>
 
             <div class="divider"> O continúa con </div>
 
@@ -49,17 +54,16 @@
 
             <p class="register-text">¿No tienes cuenta? <a href="/auth/register">Regístrate aquí</a></p>
 
-            <% if (typeof error !== "undefined") { %>
-                <p style="color:rgb(124, 2, 2);"><%= error %></p>
-            <% } %>
+            <!-- Mostrar error si existe -->
 
             <% if (typeof error !== "undefined") { %>
-                <p class="error"><%= error %></p>
+                <p style="color:rgb(124, 2, 2);"><%= error %></p>
             <% } %>
 
         </div>
     </div>
 </div>
 
+    <% include('partials/footer') %>
 </body>
 </html>
