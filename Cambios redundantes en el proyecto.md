@@ -1,4 +1,4 @@
-# Walkthrough - Resumen de Limpieza y Optimización
+# Sintesis - Resumen de Limpieza y Optimización
 
 Siguiendo tu decisión de optar por una **arquitectura limpia basada en Supabase**, he realizado los siguientes cambios estructurales en el proyecto **Willpig Studio**.
 
