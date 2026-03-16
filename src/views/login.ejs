@@ -41,7 +41,7 @@
             
             <!-- si venimos de la página de olvido con mensaje, se muestra -->
             <% if (typeof error !== "undefined" && error.startsWith('Se ha enviado')) { %>
-                <p style="color: green;"><%= error %></p>
+                <p class="text-success"><%= error %></p>
             <% } %>
 
             <div class="divider"> O continúa con </div>
@@ -57,7 +57,7 @@
             <!-- Mostrar error si existe -->
 
             <% if (typeof error !== "undefined") { %>
-                <p style="color:rgb(124, 2, 2);"><%= error %></p>
+                <p class="text-danger"><%= error %></p>
             <% } %>
 
         </div>

@@ -57,18 +57,53 @@ export const apiLogin = async (req, res) => {
 export const getProfile = async (req, res) => {
   const { id } = req.params;
   try {
-    const { data: rows, error } = await supabase
+    console.log("Fetching profile for ID:", id);
+
+    // 1. Obtener datos del usuario (Sin created_at porque la tabla no lo tiene)
+    const { data: userData, error: userError } = await supabase
       .from('cuenta_usuario')
       .select('username, email, biografia, avatar_url, rol')
-      .eq('id_cuenta_usuario', id);
+      .eq('id_cuenta_usuario', id)
+      .single();
 
-    if (error) throw error;
-    if (rows.length === 0) {
-      return res.status(404).json({ error: "Usuario no encontrado" });
+    console.log("Supabase response:", { userData, userError });
+
+    if (userError || !userData) {
+      console.error("Profile not found error:", userError);
+      return res.status(404).render('404', { message: "Usuario no encontrado" });
     }
-    res.json(rows[0]);
+
+    // 2. Obtener obras creadas por el usuario (publicadas)
+    const { data: userWorks } = await supabase
+      .from('cuentos')
+      .select('id_cuento, titulo, portada_url, vistas')
+      .eq('cuenta_usuario_id', id)
+      .eq('estado', 'publicado');
+
+    // Mapear los datos al formato que espera profile.ejs
+    const userProfile = {
+      _id: id,
+      name: userData.username, // Suponiendo que usas username como nombre a mostrar
+      username: userData.username,
+      avatar: userData.avatar_url,
+      coverImage: '/img/default-cover.jpg', // No hay coverImage en DB aún
+      joined: 'Recientemente', // Fallback, ya que no existe created_at en la DB
+      works: userWorks || [],
+      readingLists: [], // Pendiente de implementar listas de lectura en BD
+      followers: [],    // Pendiente de implementar seguidores en BD
+      following: []
+    };
+
+    res.render('profile', {
+      profile: { title: `Perfil de ${userData.username}` },
+      user: userProfile,
+      loggedUser: req.session.user || { _id: 'guest' }, // Manejar visitante no logueado
+      loggerUser: req.session.user
+    });
+
   } catch (error) {
-    res.status(500).json({ error: "Error al obtener perfil" });
+    console.error('Error al obtener perfil:', error);
+    res.status(500).send("Error al obtener perfil");
   }
 };
 
