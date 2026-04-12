@@ -51,17 +51,18 @@ a:hover {
 }
 
 /* === Navbar === */
+/* --- AI UPGRADE: Modernized Navbar Layout --- */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffba5a;
-  padding: 8px 20px;
-  font-family: 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #f55061, #e63946);
+  padding: 0 30px;
+  font-family: var(--main-font);
   position: relative;
-  top: 0;
-  z-index: 10;
-  height: 50px;
+  z-index: 100;
+  height: 65px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
 
@@ -90,38 +91,39 @@ a:hover {
   margin-left: 5px;
 }
 
+/* --- AI UPGRADE: Modernized Search Bar --- */
 .search-bar {
-  border-radius: 3px;
-  padding: 9px 15px;
-  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   outline: none;
   font-size: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s;
+}
+
+.search-bar:focus {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  max-width: 480px;
 }
 
 /* Contenedor central para la barra */
 .search-form {
   flex: 1;
   display: flex;
-  justify-content: left;
-  align-items: 10%;
+  justify-content: center;
+  align-items: center;
   margin: 0 20px;
 }
 
-.S1mMa {
-  width: 12px;
-  height: 12px;
-  margin-left: 4px;
-  vertical-align: middle;
-  margin-right: 0.5px;
-  align-items: center;
-}
-
+/* --- AI UPGRADE: Modernized Navbar Buttons & Actions --- */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 /* Dropdown general */
@@ -132,35 +134,46 @@ a:hover {
 .dropdown-trigger {
   display: flex;
   align-items: center;
-  gap: 0.1px;
   cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.dropdown-trigger:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Botones */
 .dropbtn {
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  padding: 6px 6px;
-  color: var(--text-dark);
-  color: #121212;
+  color: #ffffff;
 }
 
 /* Flechas */
-.S1mMa {
-  width: 12px;
-  height: 12px;
-  vertical-align: middle;
-  margin-left: 2px;
+.dropdown-arrow {
+  color: #ffffff;
+  margin-left: 5px;
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+.dropdown:hover .dropdown-arrow,
+.dropdown.profile:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 /* Avatar */
 .avatar-sm {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid white;
 }
 
 /* Contenedor general */
@@ -203,21 +216,7 @@ a:hover {
   transform: scale(1.2);
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 
-.dropbtn {
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0.1rem 0.5rem;
-  position: static;
-}
 
 
 
@@ -265,23 +264,30 @@ a:hover {
   bottom: 5cqb;
   left: 15px;
 
+  /* --- AI UPGRADE: Modernized button aesthetics --- */
   button {
     border: none;
     border-radius: 25px;
-    /* 🔸 más redondo */
     padding: 10px 25px;
-    background-color: #5fa55a;
+    background: linear-gradient(135deg, #5fa55a, #4a8b46);
     color: rgb(255, 255, 255);
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(95, 165, 90, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
   button:hover {
-    background-color: #88cc50;
-    /* color cálido al pasar el cursor */
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #6cbd66, #5fa55a);
+    box-shadow: 0 6px 15px rgba(95, 165, 90, 0.4);
+    transform: translateY(-3px) scale(1.02);
   }
+
+  button:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  /* ----------------------------------------------- */
 
   background: none;
   color: #f0f0f0;
@@ -368,25 +374,32 @@ a:hover {
   color: #000000;
 }
 
+/* --- AI UPGRADE: Modernized button aesthetics --- */
 .leer_story {
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
-  border-radius: 15px;
-  /* 🔸 más redondo */
+  border-radius: 20px;
   padding: 10px 25px;
-  background-color: #5fa55a;
-  color: rgb(255, 255, 255);
+  background: linear-gradient(135deg, #5fa55a, #4a8b46);
+  color: #fff;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(95, 165, 90, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .leer_story:hover {
-  background-color: #88cc50;
-  /* color cálido al pasar el cursor */
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #6cbd66, #5fa55a);
+  box-shadow: 0 6px 15px rgba(95, 165, 90, 0.4);
+  transform: translateY(-3px) scale(1.02);
 }
+
+.leer_story:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* ----------------------------------------------- */
 
 .navbar:hover .dropbtn {
   color: var(--text-bright);
@@ -587,19 +600,32 @@ body {
 }
 
 /* Botón */
+/* --- AI UPGRADE: Modernized button aesthetics --- */
 .btn-register {
-  background-color: #040225;
+  background: linear-gradient(135deg, #040225, #110e54);
   color: white;
   border: none;
   width: 100%;
   padding: 0.9rem;
   border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(4, 2, 37, 0.3);
+  transition: all 0.3s ease;
 }
 
 .btn-register:hover {
-  background-color: #3d3d3d;
+  background: linear-gradient(135deg, #110e54, #1d1880);
+  box-shadow: 0 6px 15px rgba(4, 2, 37, 0.4);
+  transform: translateY(-2px);
 }
+
+.btn-register:active {
+  transform: translateY(1px);
+}
+
+/* ----------------------------------------------- */
 
 /* Link de login */
 .login-link a {
@@ -727,21 +753,32 @@ body {
   box-shadow: 0 0 5px rgba(243, 115, 53, 0.3);
 }
 
+/* --- AI UPGRADE: Modernized button aesthetics --- */
 .btn-login-pocket {
-  background-color: var(--accent-color, #070658);
+  background: linear-gradient(135deg, #070658, #1a1899);
   color: white;
   border: none;
   border-radius: 8px;
   width: 80%;
   padding: 0.9rem;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  box-shadow: 0 4px 15px rgba(7, 6, 88, 0.2);
+  transition: all 0.3s ease;
 }
 
 .btn-login-pocket:hover {
-  background-color: #303030;
+  background: linear-gradient(135deg, #1a1899, #2b28cf);
+  box-shadow: 0 6px 20px rgba(7, 6, 88, 0.3);
+  transform: translateY(-2px);
 }
+
+.btn-login-pocket:active {
+  transform: translateY(1px);
+}
+
+/* ----------------------------------------------- */
 
 .forgot {
   display: block;
@@ -1359,23 +1396,33 @@ social-btn google img {
   margin-bottom: 20px;
 }
 
+/* --- AI UPGRADE: Modernized button aesthetics --- */
 .btn-read-start {
-  background: #e60023;
+  background: linear-gradient(135deg, #e60023, #bf001d);
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 24px;
-  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1.05rem;
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.2s;
+  box-shadow: 0 4px 15px rgba(230, 0, 35, 0.3);
+  transition: all 0.3s ease;
 }
 
 .btn-read-start:hover {
-  background: #ad001a;
+  background: linear-gradient(135deg, #ff1a3d, #e60023);
+  box-shadow: 0 6px 20px rgba(230, 0, 35, 0.4);
+  transform: translateY(-2px) scale(1.03);
 }
+
+.btn-read-start:active {
+  transform: translateY(1px);
+}
+
+/* ----------------------------------------------- */
 
 .chapters-list {
   margin-top: 40px;
