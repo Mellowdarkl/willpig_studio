@@ -21,7 +21,7 @@
   font-display: swap;
 }
 
-/*======================= Usage =======================*/
+/*======================= Uso =======================*/
 body {
   font-family: var(--main-font);
 }
@@ -55,7 +55,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #99d6e0;
+  background-color: #ffba5a;
   padding: 8px 20px;
   font-family: 'Helvetica Neue', sans-serif;
   position: relative;
