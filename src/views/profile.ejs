@@ -95,6 +95,11 @@
           <% if (user.works && user.works.length> 0) { %>
             <% user.works.forEach(work=> { %>
               <div class="library-item">
+                <% if (work.estado === 'borrador') { %>
+                  <span class="status-badge borrador">Borrador</span>
+                <% } else if (work.visibilidad === 'privada') { %>
+                  <span class="status-badge privado">Privado</span>
+                <% } %>
                 <a href="/historias/<%= work.id || work.id_cuento %>">
                   <img src="<%= work.cover || work.portada_url || '/img/default-portada.jpg' %>" class="cover"
                     alt="Obra">

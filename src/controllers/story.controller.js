@@ -50,6 +50,18 @@ export const getStoryById = async (req, res) => {
     return res.status(500).json({ error: error.message })
   }
 
+  // --- VALIDACIÓN DE PRIVACIDAD ---
+  const isAuthor = req.session && req.session.user && (String(data.cuenta_usuario_id) === String(req.session.user.id));
+  const isPublic = data.estado === 'publicado' && data.visibilidad === 'publica';
+
+  if (!isPublic && !isAuthor) {
+    return res.status(403).render('404', { 
+      message: "Esta historia es privada o se encuentra en estado de borrador.",
+      loggerUser: req.session.user 
+    });
+  }
+  // --------------------------------
+
   // Sort chapters by date (if not already sorted by DB)
   if (data.capitulos) {
     data.capitulos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
@@ -57,7 +69,8 @@ export const getStoryById = async (req, res) => {
 
   res.render('story', {
     cuento: data,
-    user: req.session.user // Pass null or user if managed globally
+    user: req.session.user, // user del contexto de la historia
+    loggerUser: req.session.user // usuario logueado para el navbar
   })
 }
 
@@ -192,5 +205,55 @@ export const getMyStories = async (req, res) => {
   } catch (error) {
     console.error('Error al obtener mis historias:', error);
     res.status(500).send("Error al cargar tus historias");
+  }
+}
+
+// GET /historias/editar/:id — Gestionar una historia (Panel del Autor)
+export const getEditStory = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    if (!req.session.user) {
+      return res.redirect('/auth/login');
+    }
+
+    const { data: cuento, error } = await supabase
+      .from('cuentos')
+      .select(`
+        id_cuento,
+        titulo,
+        descripcion,
+        portada_url,
+        estado,
+        visibilidad,
+        cuenta_usuario_id,
+        capitulos ( id_capitulo, titulo, created_at )
+      `)
+      .eq('id_cuento', id)
+      .single();
+
+    if (error || !cuento) {
+      return res.status(404).render('404', { message: "Historia no encontrada" });
+    }
+
+    // Verificar autoría
+    const userId = req.session.userId || req.session.user.id_cuenta_usuario || req.session.user.id;
+    if (String(cuento.cuenta_usuario_id) !== String(userId)) {
+      return res.status(403).render('404', { message: "No tienes permiso para editar esta historia" });
+    }
+
+    // Ordenar capítulos
+    if (cuento.capitulos) {
+      cuento.capitulos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+    }
+
+    res.render('manage_story', {
+      cuento,
+      loggerUser: req.session.user
+    });
+
+  } catch (error) {
+    console.error('Error al obtener gestión de historia:', error);
+    res.status(500).send("Error del servidor");
   }
 }
