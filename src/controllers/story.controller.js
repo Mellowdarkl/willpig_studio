@@ -55,9 +55,9 @@ export const getStoryById = async (req, res) => {
   const isPublic = data.estado === 'publicado' && data.visibilidad === 'publica';
 
   if (!isPublic && !isAuthor) {
-    return res.status(403).render('404', { 
+    return res.status(403).render('404', {
       message: "Esta historia es privada o se encuentra en estado de borrador.",
-      loggerUser: req.session.user 
+      loggerUser: req.session.user
     });
   }
   // --------------------------------
@@ -257,3 +257,128 @@ export const getEditStory = async (req, res) => {
     res.status(500).send("Error del servidor");
   }
 }
+
+// GET /historias/editar/:id/capitulos/nuevo — Crear nuevo capítulo
+export const getNewChapter = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    if (!req.session.user) {
+      return res.redirect('/auth/login');
+    }
+
+    // Verificar que el usuario sea el dueño de la historia
+    const { data: cuento, error: storyError } = await supabase
+      .from('cuentos')
+      .select('cuenta_usuario_id')
+      .eq('id_cuento', id)
+      .single();
+
+    if (storyError || !cuento) {
+      return res.status(404).render('404', { message: "Historia no encontrada" });
+    }
+
+    const userId = req.session.userId || req.session.user.id_cuenta_usuario || req.session.user.id;
+    if (String(cuento.cuenta_usuario_id) !== String(userId)) {
+      return res.status(403).render('404', { message: "No tienes permiso para crear capítulos en esta historia" });
+    }
+
+    res.render('chapter_editor', {
+      loggerUser: req.session.user,
+      storyId: id,
+      chapter: null // null indica que es nuevo
+    });
+
+  } catch (error) {
+    console.error('Error al obtener editor de capítulo:', error);
+    res.status(500).send("Error del servidor");
+  }
+}
+
+// POST /historias/editar/:id — Actualizar una historia
+export const editStory = async (req, res) => {
+  const { id } = req.params;
+  const {
+    titulo,
+    descripcion,
+    audiencia,
+    idioma,
+    derechos,
+    clasificacion,
+    categoria_id,
+    visibilidad,
+    estado
+  } = req.body;
+
+  try {
+    if (!req.session.user) {
+      return res.redirect('/auth/login');
+    }
+
+    // Identificar usuario
+    const userId = req.session.userId || req.session.user.id_cuenta_usuario || req.session.user.id;
+
+    // Verificar autoría antes de actualizar
+    const { data: cuento, error: fetchError } = await supabase
+      .from('cuentos')
+      .select('cuenta_usuario_id, portada_url')
+      .eq('id_cuento', id)
+      .single();
+
+    if (fetchError || !cuento) {
+      return res.status(404).render('404', { message: "Historia no encontrada" });
+    }
+
+    if (String(cuento.cuenta_usuario_id) !== String(userId)) {
+      return res.status(403).render('404', { message: "No tienes permiso para editar esta historia" });
+    }
+
+    let portada_url = cuento.portada_url;
+
+    // Manejar nueva portada si existe
+    if (req.file) {
+      const fileExt = req.file.originalname.split('.').pop();
+      const fileName = `${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('portadas')
+        .upload(filePath, req.file.buffer, {
+          contentType: req.file.mimetype,
+          upsert: true
+        });
+
+      if (uploadError) throw uploadError;
+
+      const { data: publicUrlData } = supabase.storage
+        .from('portadas')
+        .getPublicUrl(filePath);
+
+      portada_url = publicUrlData.publicUrl;
+    }
+
+    const { error: updateError } = await supabase
+      .from('cuentos')
+      .update({
+        titulo,
+        descripcion,
+        portada_url,
+        audiencia: audiencia || 'general',
+        idioma,
+        derechos: derechos || 'todos',
+        clasificacion,
+        categoria_id: parseInt(categoria_id) || 1,
+        visibilidad: visibilidad || 'publica',
+        estado: estado || 'borrador'
+      })
+      .eq('id_cuento', id);
+
+    if (updateError) throw updateError;
+
+    res.redirect(`/historias/editar/${id}`);
+
+  } catch (error) {
+    console.error('Error al actualizar la historia:', error);
+    res.status(500).send("Error al actualizar la historia");
+  }
+};

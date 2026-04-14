@@ -584,12 +584,21 @@ body {
   background-image: url('/img/img.ico/fondo_register.jpg');
   background-size: cover;
   background-position: center;
+  z-index: 0;
+}
+
+.Logps-navbar {
+  /* Navbar absoluto Ocultamiento de nav obsoleta*/
+  z-index: 1;
+  position: absolute;
+  inset: 0;
 }
 
 .logo-LTRA {
   position: absolute;
   top: 40px;
   left: 460px;
+  z-index: 0;
 }
 
 .logo-LTRA img {
@@ -620,7 +629,7 @@ body {
 
 .register-form input {
   width: 100%;
-  /* ✅ ya no corta el ancho */
+  /* ya no corta el ancho */
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -1282,11 +1291,13 @@ social-btn google img {
 }
 
 .status-badge.borrador {
-  background-color: #ff9800; /* Naranja para Borrador */
+  background-color: #ff9800;
+  /* Naranja para Borrador */
 }
 
 .status-badge.privado {
-  background-color: #607d8b; /* Gris azulado para Privado */
+  background-color: #607d8b;
+  /* Gris azulado para Privado */
 }
 
 /* Imagen de portada */
