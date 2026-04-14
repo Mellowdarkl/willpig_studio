@@ -293,26 +293,59 @@ a:hover {
   color: #f0f0f0;
   padding: 0.9rem;
   border-radius: var(--radius);
-
+  /* Strong text shadow for legibility over bright images */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8),
+  0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+.caption h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+}
+
+/* --- AI UPGRADE: Modernized Carousel Controls --- */
 .carousel-controls {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .carousel-controls button {
-  background: rgba(44, 44, 44, 0.5);
-  color: white;
-  border: none;
-  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 50%;
-  padding: 0.5rem 1rem;
-  position: relative;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 0;
+}
+
+.carousel-controls button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-controls button:active {
+  transform: scale(0.95);
 }
 
 /* === Secciones de historias === */
